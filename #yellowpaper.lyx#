@@ -1,0 +1,1182 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass paper
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\rightmargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\size larger
+Opero.IO
+\end_layout
+
+\begin_layout Author
+Ihab McShea, Khaled ElSalahaty
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\size larger
+Introduction
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+Online freelancing, despite being one of the most flexible preferable ways
+ to make profit doing the things one is good at, still faces a good number
+ of problems that make it inconvenient for both the clients and the freelancers.
+ The lack of a trustless method to approve and maintain deals between both
+ parties discourages a possible growth of the industry.
+ Even after the deal is done, one or both parties could end up not satisfied
+ with the end result which requires a sophisticated solution that might
+ involve one or more third-parties with the responsibility of overseeing
+ deals and resolving disputes that might arise for the mutual benefit of
+ the client and the freelancer.
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+Opero.IO is a decentralized online platform that is built to help in the
+ process of matching clients and freelancers, help them maintain agreements
+ based on milestones (more details in section x.x) and resolve disputes that
+ might arise during or after the work is done through judges that are picked
+ based on criteria and economic games.
+ The judges are overseen by a higher authority called the council of experts
+ that are elected by token holders.
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+Opero's model is built to incentivize everyone involved in the system, from
+ clients to members of the council of experts, to behave with the best interest
+ and steer away from malicious behavior.
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\size larger
+Definitions
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+\size larger
+OPToken: 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ 
+\series default
+is the set of all OPTokens in the system.
+ OPToken is the utility token of the Opero platform.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+\size larger
+Client:
+\series default
+ A client c is the first of two parties in a project p who initializes it
+ and sets the initial budget, project description, milestones (or tasks)
+ 
+\begin_inset Formula $T_{p}$
+\end_inset
+
+, and approves each task t as it is finished by the freelancer.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+\size larger
+Freelancer: 
+\series default
+A freelancer f is the second party in a project p who responds to the initial
+ offer by the client c with a proposal 
+\begin_inset Formula $p_{f}$
+\end_inset
+
+ where 
+\begin_inset Formula $p_{f}$
+\end_inset
+
+ is approved by c.
+ The freelancer submits tasks 
+\begin_inset Formula $T_{p}$
+\end_inset
+
+ to be approved by c.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+\size larger
+Project: 
+\series default
+A project p is an agreement between the matched client c and freelancer
+ f described by a budget, a global deadline 
+\begin_inset Formula $d_{p}$
+\end_inset
+
+, a set of fields 
+\begin_inset Formula $F_{p}$
+\end_inset
+
+, and a set of tasks 
+\begin_inset Formula $T_{p}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+\size larger
+Milestone: 
+\series default
+A milestone (or a task) 
+\begin_inset Formula $t\in T_{p}$
+\end_inset
+
+ is a task in some project p which is initially proposed by a client c then
+ agreed on by a freelancer f, and is described by a local deadline, task
+ description, and a set of fields 
+\begin_inset Formula $F_{t}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+\size larger
+Field: 
+\series default
+A field f is a work field, programming language or program associated with
+ a specific project or a task.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+\size larger
+Dispute: -
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+\size larger
+Dispute Timeout:-
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+\size larger
+Judge:-
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+
+\series bold
+\size larger
+Council of Experts:-
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\size larger
+Motivation
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\size larger
+System Description
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+System Overview
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+During the entire process of the project, as defined in section II, Opero
+ acts as a decentralized in-betweener helping both clients attain the quality
+ they desire within a reasonable time-cost framework and freelancers maintain
+ a portofolio and projects that are secure and flexible.
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+Projects are supposed to be broken into milestones, especially in the case
+ of large-scale projects, in order to ensure mutual satisfaction and agreement
+ to the work done throughout the entire duration of the project.
+ If a dispute arises during any stage in the project or even after, both
+ parties are referred to a judge specializing in the field of the project,
+ a dispute timeout is set and both parties support their cases then the
+ judge rules a decision.
+ In the case the judge's decision was not satisfying to either of the parties,
+ they can appeal the judge's decision in front of the supreme council knowing
+ that the council's decision is final and can not be repealed.
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+All users involved in the system are incentivized through different ways
+ to attain honest benevolent behavior that helps the system to always serve
+ all beneficiaries.
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+Life Cycle of a Project
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+The potential client proposes a project described by a title, clear description,
+ a proposed budget, potential fields (or programs or programming languages),
+ and a proposed timeline.
+ Freelancers apply by sending their proposals which include a budget, fields
+ -as described earlier- and a timeline which are sent along with their profiles.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+Once the client approves the freelancer's proposal, all the budget is locked
+ out in a smart contract and a pre-agreed upon downpayment is sent to the
+ freelancer but is locked out until the freelancer delivers the first milestone
+ and the client approves the work done.
+ Throughout the project, the freelancer submits the work that's supposed
+ to be done by a certain deadline, deadlines correspond to the previously
+ defined milestones.
+ If the freelancer is late to a a milestone by 24 hours, the client is entitled
+ to report the freelancer and the freelancer should provide a reasonable
+ explanation for such delay; if the reason is rejected by the judge, the
+ freelancer is penalized by reducing the total sum to be paid at the end
+ of the project.
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+If the client rejects a work done by the freelancer, the freelancer can
+ report the client, and a judge reviews the report to either approve or
+ reject the freelancer's work.
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+Once the project is done, if the client does not like the end-product or
+ realizes it was plaigiarized, they can report the freelancer to the judge
+ and if the judge rules that the project was plaigiarized, the freelancer
+ does not get paid for the project and does not get the down-payment for
+ the next five projects.
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+Judges
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+A judge is someone who is responsible to resolve disputes between the client
+ and the freelancer, yet their decisions can be repealed or reviewed by
+ the council of experts.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+In the proposed system, certain individuals that meet the following criteria:
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+Have a sufficient balance of OPTokens whick is kept as a collateral for
+ a given period of time,
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+Are approved by the council of experts based on their portofolios (e.g: Linkedin
+ profiles)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\size larger
+Judges are not allowed to remain anonymous.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\size larger
+resolve disputes between clients and freelancers, are incentivized to do
+ so for a number of reasons: 
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+They are rewarded for their jobs as Judges with OPTokens weekly from the
+ prize pool.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+The minimum stake requirement makes the number of possible master nodes
+ smaller than if this was implemented as an open market.
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+The minimum stake requirement can be justified as the judge having enough
+ stake in the system makes them feel more involved in the platform and enforces
+ a sense of responsibility towards the users of the systems.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+It is planned that as the system grows the judges will be appointed from
+ the veteran freelancers on the platform since it is easier to check their
+ work as it is logged in the job history which is made public to help clients
+ pick the best performing freelancers.
+ Appointing veteran freelancers as judges is a way to repay the freelancers
+ who helped build the platform from the beginning or as it evolves.
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+The Council of Experts
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+A number of 11 experts are voted by all token holders in a DPoS-like process,
+ are delegated two important tasks: (i) determining an appropriate job submissio
+n collateral fee and (ii) reviewing the judges' decisions
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+The second task involves the witness voting on reports sent by one of the
+ parties involved in a project concerning a ruling by a judge, and once
+ a case has the majority (50% or more) of the experts votes in the favor
+ of the report, the ruling is repealed and the judge is penalized by paying
+ a small fee.
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+To incentivize the council members, they are rewarded after each round with
+ 35% of the prize pool as a base payment, in addition to half the penalty
+ of malicious clients, freelancers or judges.
+ Not all members are equal in the reward, the more reports a member helps
+ decide, the bigger their share of the reward is.
+ A member who doesn't vote in a single report is not paid at all.
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+Dispute Resolution Mechanism
+\end_layout
+
+\begin_layout Subsubsection
+
+\size larger
+Input: 
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+A set 
+\begin_inset Formula $S\subset J$
+\end_inset
+
+ with 
+\begin_inset Formula $|S|=M$
+\end_inset
+
+, 
+\begin_inset Formula $|J|=N$
+\end_inset
+
+ and 
+\begin_inset Formula $M\leq N$
+\end_inset
+
+ where S is the set of specialized judges and J is the set of all judges
+ on the platform.
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+A specialized judge 
+\begin_inset Formula $j\in S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+A project p with set of tasks T.
+ A single task t defined by a description and deadline can be submitted.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\size larger
+A set of fields F with 
+\begin_inset Formula $F_{p}\subset F$
+\end_inset
+
+ denoting the fields of the project and 
+\begin_inset Formula $F_{t}\subset F$
+\end_inset
+
+ denoting the fields of a specific task.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\size larger
+A set of fields 
+\begin_inset Formula $F_{j}$
+\end_inset
+
+ of the specialize judge j with a reputation factor 
+\begin_inset Formula $rf_{j}$
+\end_inset
+
+ and number of pending reports 
+\begin_inset Formula $r_{j}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+A report R associated with a project P or a task t.
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+A client c and freelancer f where 
+\begin_inset Formula $c\in H$
+\end_inset
+
+ and 
+\begin_inset Formula $f\in H$
+\end_inset
+
+.
+ H is the set of all token holders on the platform.
+\end_layout
+
+\begin_layout Subsubsection
+
+\size larger
+Output:
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+An initial decision d set by j.
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+A penalty p set on either c or f.
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+A possible appeal a which is a report on the judge's decision submitted
+ to the council.
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+A possible penalty 
+\begin_inset Formula $p_{j}$
+\end_inset
+
+ set on the judge j if found guilty by most of the council of experts E.
+\end_layout
+
+\begin_layout Subsubsection
+
+\size larger
+Mechanism
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+The project can have multiple fields and so can each task if a report is
+ filed for a specific task, the task's fields 
+\begin_inset Formula $F_{t}$
+\end_inset
+
+ are prioritized.
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+A judge j with the following criteria is matched:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\size larger
+\begin_inset Formula $|F_{j}-F_{t}|=0$
+\end_inset
+
+ or 
+\begin_inset Formula $|F_{j}-F_{t}|<|F_{i}-F_{t}|$
+\end_inset
+
+ 
+\begin_inset Formula $\forall_{i\not=j}$
+\end_inset
+
+ in the case of a task.
+ 
+\begin_inset Formula $|F_{j}-F_{p}|=0$
+\end_inset
+
+ or 
+\begin_inset Formula $|F_{j}-F_{p}|<|F_{i}-F_{p}|$
+\end_inset
+
+ 
+\begin_inset Formula $\forall_{i\not=j}$
+\end_inset
+
+ in the case of a project.
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+If 
+\begin_inset Formula $rf_{j}\geq rf_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $r_{j}\leq r_{i}$
+\end_inset
+
+ 
+\begin_inset Formula $\forall_{i\not=j}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\size larger
+A dispute timeout 
+\begin_inset Formula $DT$
+\end_inset
+
+ is set where neither party can modify anything related to the project.
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+If the report is decided against either 
+\begin_inset Formula $c$
+\end_inset
+
+ or 
+\begin_inset Formula $f$
+\end_inset
+
+then a penalty p is imposed on the defendant party of the report r.
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+Once the report r is decided by the specialized judge decides the report,
+ either c or f can file a report to the council of experts E.
+ The decision of council of experts if final and can not be repealed.
+ If the council E rules against the specialized judge j, their reputation
+ factor 
+\begin_inset Formula $rf_{j}$
+\end_inset
+
+ is decreased by a certain factor decided by 
+\begin_inset Formula $p_{j}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+Incentivization Model
+\end_layout
+
+\begin_layout Subsubsection
+
+\size larger
+Clients and Freelancers
+\end_layout
+
+\begin_layout Subsubsection
+
+\size larger
+Judges
+\end_layout
+
+\begin_layout Subsubsection
+
+\size larger
+Council of Experts
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+Prize Pool
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+The prize pool is where the OPTokens are kept to reward judges and members
+ of the council weekly.
+ The prize pool is funded through two ways: the first is by a reward that
+ is issued weekly and is halved periodically, and by the penalties clients
+ and judges pay as penalties.
+ 35% of the reward is divided among the 11 members of the council, the remaining
+ 65% are rewarded to the judges.
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+Projects History
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+A history explorer will be available for the public to view the history
+ of projects and disputes arising, if any, in said project.
+ Each party in any project has a complete history stored in the explorer
+ which means they will have a permanent public record of their actions on
+ the platform stored on the blockchain forever.
+ This is, in part, contributing the incentivization/disincentivization model
+ to help both freelancers and clients pick their counterparts carefully.
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+Governance and Pluggable Architecture
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+Since this is basically a dispute resolution platform for freelancers and
+ clients, it is supposed to be subject to consistent scrutiny to arrive
+ at the most optimal solutions for dispute resolution, so in case the majority
+ of token holders decide to upgrade the platform a new smart contract can
+ be easily plugged in place of the old one.
+ In order to achieve this we set the following rules:
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+The token smart contract is permanent.
+\end_layout
+
+\begin_layout Enumerate
+
+\size larger
+The platform smart contract can be upgraded by plugging a new contract in
+ place of it and connecting it to the token smart contract.
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+The new smart contract is signaled, meaning that once more than fifty percent
+ of all token holders vote on a new platform contract to replace the current,
+ it immediately goes into operation.
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\size larger
+System Analysis
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+Context Diagram
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+\begin_inset Graphics
+	filename CD of Opero.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+This is the most general data flow diagram of the system; it describes how
+ the data flows between the different entities involved in the system.
+ The entities involved are all token-holders and are the following: clients,
+ council member, freeelancers and judges.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+A client submits a project which is shown among other projects to a potential
+ freelancer then the freelancer submits a proposal to the client's project.
+ The client submits a list of tasks that is delievered with its corresponding
+ project to the freelancer who submits the tasks back completed to the client.
+ If either the client or the freelancer feel like reporting the other party
+ at any point they can and the report is submitted to a judge who decides
+ the report.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+Either party can also submit a report, i.e: appeal, regarding the judge's
+ decision which is submitted to the council of experts and each council
+ member gets to vote on the report regarding the judge.
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+Further details of how the system operates are discussed in the upcoming
+ sections.
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+General System Analysis
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename dfdlevel1.jpg
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+The data flow starts when the client starts a project by paying a collateral
+ fee and listing the required tasks 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\size normal
+check the data dictionary in 5.4
+\end_layout
+
+\end_inset
+
+ , or milestones, and paying in full the budget suggested which gets locked
+ in a smart contract until the project is done.
+ The project is then placed on the list of pending projects until the client
+ approves a proposal by a freelancer, then a project is intialized.
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+The life-cycle of the project involves milestones due, freelancers doing
+ the tasks which are approved by the client.
+ In case a dispute involving any milestone along the way any of the two
+ parties can file a report which is handled by a judge.
+ The judge's decision is not final but places an inital penalty on the reported
+ side if it is the case they had wronged the other side.
+ The judge's decision can be appealed and reviewed by the council members
+ who approve the appeals, repeal the judge's decisions and finally penalize
+ the judge in question.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+At the end, reaching the last task the project is finalized unless one of
+ the parties file a report which could trigger more work on the project.
+ Otherwise, the freelancer gets paid in full and the client gets their collatera
+l fee back.
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+Analysis of Subsystems
+\end_layout
+
+\begin_layout Subsubsection
+Analysis of the matching process
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename childdiagram2.png
+	scale 200
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Analysis of the dispute resolution process
+\end_layout
+
+\begin_layout Subsubsection
+Analysis of the project finalization process
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+Data Dictionary
+\end_layout
+
+\begin_layout Subsubsection
+Data Elements
+\end_layout
+
+\begin_layout Subsubsection
+Data Structures
+\end_layout
+
+\begin_layout Subsubsection
+Processes
+\end_layout
+
+\begin_layout Subsubsection
+Glossary
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\size larger
+Related Work
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\size larger
+Tokenomics
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+Token Emission Logic
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\size larger
+Development, Deployment & Evaluation
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+Development
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+Deployment and Testing
+\end_layout
+
+\begin_layout Subsection
+
+\size larger
+System Evaluation
+\end_layout
+
+\begin_layout Standard
+
+\size larger
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\size larger
+Conclusion
+\end_layout
+
+\end_body
+\end_document
